@@ -1,5 +1,16 @@
 # elastic-search
 
+To start 
+
+```json
+
+// from elasticsearch floder
+.\bin\elasticsearch.bat
+
+// from kibana floder
+.\bin\kibana.bat
+
+```
 
 | Text   ->     | elastic-search -> | Analysis [Token + filter] -> |Inverted Index|
 | ------------- |:-----------------:| --------------------------------:|----------|
