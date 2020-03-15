@@ -122,3 +122,21 @@ PUT /my-index
 ```
 
 
+### Create Index using Curl ###
+
+curl -X PUT "localhost:9200/twitter?pretty"
+
+
+check links
+
+http://www.cplusplus.com/forum/general/89488/
+https://curl.haxx.se/download.html
+https://bintray.com/artifact/download/vszakats/generic/curl-7.69.1-win64-mingw.zip
+
+copy bin, lib, inlcude to Qt MGWin floder
+
+
+// Qt Lib in pro file
+LIBS += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib/libcurl.a
+LIBS += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib/libcurldll.a
+INCLUDEPATH += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib
