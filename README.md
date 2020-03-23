@@ -140,3 +140,103 @@ copy bin, lib, inlcude to Qt MGWin floder
 LIBS += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib/libcurl.a
 LIBS += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib/libcurldll.a
 INCLUDEPATH += C:/Qt/Qt5.12.3/5.12.3/mingw73_64/lib
+
+```json
+
+POST /testing/
+{
+     "location" : "40.175223,-161.785881",
+    "Sold": 90,
+    "Remaining": 65,
+    "Fruit": "apple",
+"2020-03-09T18:27:00"
+}
+```
+
+```json
+{
+    PUT /testing
+{
+  "mappings": {
+    "properties": {
+        "timestamp" : {
+          "type" : "date"
+        },
+      "age":    { "type": "integer" },  
+      "email":  { "type": "keyword"  }, 
+      "name":   { "type": "keyword"  },
+        "location" : {
+          "type" : "geo_point"
+        },
+      "company":   { "type": "keyword"  },
+        "balance":    { "type": "float" },  
+      "remaining":  { "type": "integer"}, 
+      "Fruit":   { "type": "keyword"  },
+       "sold":  { "type": "integer"  }
+    }
+  }
+}
+}
+```
+
+```json
+      {
+        "_index" : "kibana_sample_data_flights",
+        "_type" : "_doc",
+        "_id" : "ufkV-HABFiMMzHrskQuH",
+        "_score" : 1.2,
+        "_source" : {
+          "FlightNum" : "9HY9SWR",
+          "DestCountry" : "AU",
+          "OriginWeather" : "Sunny",
+          "OriginCityName" : "Frankfurt am Main",
+          "AvgTicketPrice" : 841.2656419677076,
+          "DistanceMiles" : 10247.856675613455,
+          "FlightDelay" : false,
+          "DestWeather" : "Rain",
+          "Dest" : "Sydney Kingsford Smith International Airport",
+          "FlightDelayType" : "No Delay",
+          "OriginCountry" : "DE",
+          "dayOfWeek" : 0,
+          "DistanceKilometers" : 16492.32665375846,
+          "timestamp" : "2020-03-09T00:00:00",
+          "DestLocation" : {
+            "lat" : "-33.94609833",
+            "lon"
+          }
+        }
+      }
+```
+
+```json
+POST /fruits/_bulk
+{ "index": {} }
+{ "sold" : 12, "remaining" : 73,  "location" : "-70.062049,57.48776",  "timestamp" : "2020-03-09T18:58:00"  , "Fruit" : "orange"}
+{ "index": {} }
+{ "sold" : 34, "remaining" : 34,  "location" : "-70.062049,57.48776",  "timestamp" : "2020-03-09T18:58:00"  , "Fruit" : "apple"}
+{ "index": {} }
+{ "sold" : 5, "remaining" : 28,  "location" : "-70.062049,57.48776",  "timestamp" : "2020-03-09T18:58:00"  , "Fruit" : "banana"}\
+```
+
+```json
+PUT /fruits/_doc/11
+{
+    "sold" : 12, 
+    "remaining" : 73,  
+    "location" : "-70.062049,57.48776",  
+    "timestamp" : "2020-03-09T18:58:00"  , 
+    "Fruit" : "orange"
+}
+```
+
+```json
+
+GET /fruits/_search 
+{
+  "size" : 20,
+  "query" : {
+  
+  "match_all" : {}
+  }
+}
+```
