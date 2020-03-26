@@ -240,3 +240,98 @@ GET /fruits/_search
   }
 }
 ```
+
+
+```json
+PUT /demo
+{
+  "mappings": {
+    "properties": {
+        "geoip" : {
+          "properties" : {
+            "city_name" : {
+              "type" : "keyword"
+            },
+            "continent_name" : {
+              "type" : "keyword"
+            },
+            "country_iso_code" : {
+              "type" : "keyword"
+            },
+            "location" : {
+              "type" : "geo_point"
+            },
+            "region_name" : {
+              "type" : "keyword"
+            }
+          }
+        },
+         "date" : {
+          "type" : "date"
+        },
+        "Fruit" : {
+          "type" : "keyword"
+        },
+        "remaining" : {
+          "type" : "integer"
+        },
+        "sold" : {
+          "type" : "integer"
+        }
+    }
+  }
+}
+```
+
+```json
+POST /demo/_bulk
+{ "index": {} }
+{ "sold" : 34, "remaining" : 54,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 12, "remaining" : 76,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 18, "remaining" : 49,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 11, "remaining" : 26,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 54, "remaining" : 34,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 22, "remaining" : 20,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 22, "remaining" : 27,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 45, "remaining" : 20,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 29, "remaining" : 52,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 30, "remaining" : 39,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:34+00:00"}
+{ "index": {} }
+{ "sold" : 28, "remaining" : 20,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:34+00:00"}
+{ "index": {} }
+{ "sold" : 27, "remaining" : 25,  "geoip" : {"country_iso_code" : "DE","location" : {"lon" : 9.1,"lat" : 48.7},"region_name" : "Baden-Württemberg","continent_name" : "Europe","city_name" : "Stuttgart"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:34+00:00"}
+{ "index": {} }
+{ "sold" : 34, "remaining" : 54,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 12, "remaining" : 76,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 18, "remaining" : 49,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:31+00:00"}
+{ "index": {} }
+{ "sold" : 11, "remaining" : 26,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 54, "remaining" : 34,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 22, "remaining" : 20,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:32+00:00"}
+{ "index": {} }
+{ "sold" : 22, "remaining" : 27,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 45, "remaining" : 20,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 29, "remaining" : 52,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:33+00:00"}
+{ "index": {} }
+{ "sold" : 30, "remaining" : 39,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "apple","date" : "2020-03-26T12:11:34+00:00"}
+{ "index": {} }
+{ "sold" : 28, "remaining" : 20,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "banana","date" : "2020-03-26T12:11:34+00:00"}
+{ "index": {} }
+{ "sold" : 27, "remaining" : 25,  "geoip" : {"country_iso_code" : "IN","location" : {"lon" : 78.4,"lat" : 17.3},"region_name" : "Telangana","continent_name" : "Asia","city_name" : "Hyderabad"}  , "Fruit" : "orange","date" : "2020-03-26T12:11:34+00:00"}
+
+```
